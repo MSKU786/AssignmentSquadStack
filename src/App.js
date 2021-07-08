@@ -1,9 +1,13 @@
 import Topbar from "./Components/Topbar/Topbar"
+import useOnlineStatus from '@rehooks/online-status';
+import NotFound from "./Components/Notfound";
 
 function App() {
+  const onlineStatus = useOnlineStatus();
   return (
     <div className="App">
-        <Topbar defaultValue = {2}/>
+        
+        {onlineStatus ? <Topbar defaultValue = {2}/> : <NotFound />}
     </div>
   );
 }

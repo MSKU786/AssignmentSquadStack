@@ -62,9 +62,10 @@ function Main({index}) {
                     Want more than 80 Qualified leads each month?
                 
                 </div>
-                <div className="footerTwo">
+                <div className="footerTwo" onClick={()=> handleForm("80+")}>
                     Get in touch
                 </div>
+                {form==="80+" && <Form value = {"80+"} onClick = {handleCancel} />}
             </div>
         </div>
     );

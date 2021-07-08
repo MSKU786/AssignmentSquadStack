@@ -28,6 +28,8 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: center;
     align-content: center;
     width: 100%;
+    border-bottom: 2px dotted #5a6f90;
+    margin-bottom: 5px;
 }
 span{
     font-size: 14px;
