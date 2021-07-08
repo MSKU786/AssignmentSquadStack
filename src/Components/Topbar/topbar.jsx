@@ -17,7 +17,7 @@ function Topbar({defaultValue}) {
     return (
         <>
         <div class = "header">
-            <div className="block" onClick = {()=> setRange(1)}>
+            <div className="block" id="firstOne" onClick = {()=> setRange(1)}>
                 <span>$100K-$200K</span>
             </div>
             <div className="block" onClick = {()=> setRange(2)}>
@@ -29,7 +29,7 @@ function Topbar({defaultValue}) {
             <div className="block" onClick = {()=> setRange(4)}>
             <span>$400K-$500K</span>
             </div>
-            <div className="block" onClick = {()=> setRange(5)}>
+            <div className="block" id= "lastOne" onClick = {()=> setRange(5)}>
             <span>$500K-$600K</span>
             </div> 
                

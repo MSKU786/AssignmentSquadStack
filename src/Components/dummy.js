@@ -17,13 +17,6 @@ const dummy = [
                 finalPackage: '3279'
             },
             {
-                LeadsPerMonth : '60',
-                pricePerLiveTranfer: '65',
-                leadPrice: '3900',
-                platformPrice: '699',
-                finalPackage: '4599'
-            },
-            {
                 LeadsPerMonth : '80',
                 pricePerLiveTranfer: '63',
                 leadPrice: '5040',
@@ -49,13 +42,7 @@ const dummy = [
                 platformPrice: '599',
                 finalPackage: '3679'
             },
-            {
-                LeadsPerMonth : '60',
-                pricePerLiveTranfer: '74',
-                leadPrice: '4400',
-                platformPrice: '699',
-                finalPackage: '5139'
-            },
+    
             {
                 LeadsPerMonth : '80',
                 pricePerLiveTranfer: '72',
@@ -82,13 +69,7 @@ const dummy = [
                 platformPrice: '599',
                 finalPackage: '4439'
             },
-            {
-                LeadsPerMonth : '60',
-                pricePerLiveTranfer: '93',
-                leadPrice: '5580',
-                platformPrice: '699',
-                finalPackage: '6279'
-            },
+           
             {
                 LeadsPerMonth : '80',
                 pricePerLiveTranfer: '90',
@@ -115,13 +96,7 @@ const dummy = [
                 platformPrice: '599',
                 finalPackage: '4839'
             },
-            {
-                LeadsPerMonth : '60',
-                pricePerLiveTranfer: '102',
-                leadPrice: '6120',
-                platformPrice: '699',
-                finalPackage: '6819'
-            },
+         
             {
                 LeadsPerMonth : '80',
                 pricePerLiveTranfer: '99',
@@ -148,13 +123,7 @@ const dummy = [
                 platformPrice: '599',
                 finalPackage: '5599'
             },
-            {
-                LeadsPerMonth : '60',
-                pricePerLiveTranfer: '121',
-                leadPrice: '7260',
-                platformPrice: '699',
-                finalPackage: '7959'
-            },
+           
             {
                 LeadsPerMonth : '80',
                 pricePerLiveTranfer: '117',

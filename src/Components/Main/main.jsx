@@ -10,32 +10,53 @@ function Main({index}) {
             dummy[index].Qualified.map((data) =>
                 (
                     <div className="infoContainer">
-                        <div className="head">
+                        {
+                            data.LeadsPerMonth==='40' ?
+                            <div className = "mostPopular">
+                                Most Popular
+                            </div>  :
+                            <div className = "blank">
+                            </div>
+                        }
+                        <div className="heading">
                             Qualified {data.LeadsPerMonth}
                         </div>
                         <div className="middleOne">
-                            ${data.leadPrice}
+                            <p>${data.pricePerLiveTranfer}</p>
                             per Qualified lead
                         </div>
                         <div className="middleTwo">
                             Qualified leads per montha
-                            {data.LeadsPerMonth}
+                            <p>{data.LeadsPerMonth}</p>
                         </div>
-                        <div className="middleThree">
+                        <div className="middleTwo" id="noborder">
                             Platform fee per month
-                            ${data.platformPrice}
+                            <p>${data.platformPrice}</p>
                         </div>
-                        <div className="footerOne">
-                             ${data.finalPackage}
+                        <div className="heading">
+                             ${data.finalPackage}/mo
                         </div>
-                        <div className="footerTwo">
+                        <div className="footerTwo" id =  {data.LeadsPerMonth==='40' ? "fill" : ""} >
                             Start Your Trial
                         </div>
                     </div>
                 )
             )
-           
         }
+            <div className="infoContainer">
+            <div className = "blank">
+                            </div>
+                <div className="heading">
+                    Enterprise
+                </div>
+                <div className="lastOneMiddle">
+                    Want more than 80 Qualified leads each month?
+                
+                </div>
+                <div className="footerTwo">
+                    Get in touch
+                </div>
+            </div>
         </div>
     );
 }
