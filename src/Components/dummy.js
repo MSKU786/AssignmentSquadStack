@@ -1,4 +1,4 @@
-export const dummy = [
+const dummy = [
     {
         averageHome: '100K-200K',
         Qualified: [
@@ -165,3 +165,5 @@ export const dummy = [
         ]
     },
 ]
+
+export default dummy;
