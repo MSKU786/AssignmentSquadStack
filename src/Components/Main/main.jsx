@@ -1,7 +1,9 @@
 import React from 'react';
-
-function main(props) {
+import dummy from "../dummy"
+function Main({index}) {
+    console.log(dummy[index]);
     return (
+ 
         <div>
             <div className="head">
                 
@@ -25,4 +27,4 @@ function main(props) {
     );
 }
 
-export default main;
+export default Main;
