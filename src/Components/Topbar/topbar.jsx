@@ -17,19 +17,19 @@ function Topbar({defaultValue}) {
     return (
         <>
         <div class = "header">
-            <div className="block" id="firstOne" onClick = {()=> setRange(1)}>
+            <div className={ range===1 ? "block active ":"block"} id="firstOne" onClick = {()=> setRange(1)}>
                 <span>$100K-$200K</span>
             </div>
-            <div className="block" onClick = {()=> setRange(2)}>
+            <div className={ range===2 ? "block active ":"block"} onClick = {()=> setRange(2)}>
                 <span>$200K-$300K</span>
             </div>
-            <div className="block" onClick = {()=> setRange(3)}>
+            <div className={ range===3 ? "block active ":"block"} onClick = {()=> setRange(3)}>
             <span>$300K-$400K</span>
             </div>
-            <div className="block" onClick = {()=> setRange(4)}>
+            <div className={ range===4 ? "block active ":"block"} onClick = {()=> setRange(4)}>
             <span>$400K-$500K</span>
             </div>
-            <div className="block" id= "lastOne" onClick = {()=> setRange(5)}>
+            <div className={ range===5 ? "block active ":"block"} id= "lastOne" onClick = {()=> setRange(5)}>
             <span>$500K-$600K</span>
             </div> 
                

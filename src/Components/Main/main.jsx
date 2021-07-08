@@ -1,11 +1,20 @@
-import React from 'react';
-import dummy from "../dummy.js"
+import React, { useState } from 'react';
+import dummy from "../dummy.js";
+import Form from "./Form";
 import './main.css'
 
 function Main({index}) {
-    console.log(dummy[index]);
+    const [form , setForm]  = useState('0');
+    const handleForm = (e) => {
+        
+        setForm(e);
+    }
+
+    const handleCancel = (e) => {
+        setForm(0);
+    }
     return (
-        <div className="mainContainer">
+        <div className="mainContainer" >
         {
             dummy[index].Qualified.map((data) =>
                 (
@@ -36,9 +45,10 @@ function Main({index}) {
                         <div className="heading">
                              ${data.finalPackage}/mo
                         </div>
-                        <div className="footerTwo" id =  {data.LeadsPerMonth==='40' ? "fill" : ""} >
+                        <div className="footerTwo" id =  {data.LeadsPerMonth==='40' ? "fill" : ""} onClick={()=> handleForm(data.LeadsPerMonth)}>
                             Start Your Trial
                         </div>
+                        {form===data.LeadsPerMonth && <Form value = {data.LeadsPerMonth} onClick = {handleCancel} />}
                     </div>
                 )
             )
