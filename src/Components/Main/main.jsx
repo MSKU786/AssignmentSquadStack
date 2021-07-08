@@ -6,7 +6,6 @@ import './main.css'
 function Main({index}) {
     const [form , setForm]  = useState('0');
     const handleForm = (e) => {
-        
         setForm(e);
     }
 

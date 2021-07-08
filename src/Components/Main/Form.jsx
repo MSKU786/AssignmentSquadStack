@@ -1,81 +1,141 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
+
 import "./form.css"
 function Form(props) {
-    console.log("this is the ",props);
+    const name = useRef();
+    const email = useRef();
+    const mobile = useRef();
+    const noLeads = useRef();
+    const noLeadsCrm = useRef();
+    const crm = useRef();
+    const noOfAgents = useRef();
+    const [sources, setSources] = useState([]);
+    const [share, setShare] = useState([]);
+
+    const handleSelect = (e) => {
+        if(sources.includes(e))
+        {
+            let data = sources.filter(val => val!=e);
+            setSources(data);
+        }
+        else
+        {
+            let data = sources;
+            data.push(e);
+            setSources(data);
+        }
+    }
+    
+    const handleShareClick = (e) => {
+        if(share.includes(e))
+        {
+            let data = share.filter(val => val!=e);
+            setShare(data);
+        }
+        else
+        {
+            let data = share;
+            data.push(e);
+            setShare(data);
+        }
+    }
     const handleCancel = (e) => {
         props.onClick(e);
+
+    }
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        const res = {
+            name: name.current.value,
+            email: email.current.value,
+            mobileNo: mobile.current.value,
+            noOfLeadsInMonth: noLeads.current.value,
+            totalLeadsCRM: noLeadsCrm.current.value,
+            crm: crm.current.value,
+            noOfAgents: noOfAgents.current.value,
+            leadSources: sources,
+            aboutUs: share
+        }
+        console.log(res);
+        alert(JSON.stringify(res));
+        window.location.reload();
     }
     return (
         <div className="formContainer">
-            <form onSubmit="handleClick">
-                <h3> Get Stared with SquadVoice </h3>
-                <span onClick={()=>handleCancel(0)}> X </span>
-                <b>Plan Selected </b><span> &nbsp; {props.value}</span> 
+            <form onSubmit={handleClick}>
+                <div className="formHeader">
+                    <h3> Get Stared with SquadVoice </h3>
+                </div>
+                <span onClick={()=>handleCancel(0)} id="cancelButton"> X </span>
+                <b>Plan Selected </b><span> &nbsp; Qualified &nbsp; {props.value}</span> 
                 <div className="nameSection">
                     <p>Name</p>
-                    <input type="text" className="nameField" />
+                    <input type="text" className="nameField" ref={name} required/>
                 </div>
                 <div className="emailorPhoneSection">
                     <div className="emailSection">
                         <p>
                             Email Address
                         </p>
-                        <input type="email" className="emailField" />
+                        <input type="email" className="emailField" ref={email} required/>
                     </div>
-                    <div className="phoneNoSection">
+                    <div className="emailSection">
                         <p>
                             Phone No.
                         </p>
-                        <input type="text" className="phoneNumber" />
+                        <input type="text" ref={mobile} className="phoneNumber" required/>
                     </div>
                 </div>
-                <div className="otherInfo1">
-                    <div className="leadGenerate">
+                <div className="emailorPhoneSection">
+                    <div className="emailSection">
                         <p>
                             Number of leads you generate in a month
                         </p>
-                        <input type="number" id="quantity1" name="quantity" min="0" max="100" step="10" placeholder="-"/>
+                        <input type="number" id="quantity1" ref= {noLeads} name="quantity" min="0" max="100" step="10" placeholder="-" required/>
                     </div>
-                    <div className="totalLeads">
+                    <div className="emailSection">
                         <p>
                             Total Leads in your CRM
                         </p>
-                        <input type="number" id="quantity2" name="quantity" min="0" max="100" step="10" placeholder="-"/>
+                        <input type="number" id="quantity2" ref= {noLeadsCrm} name="quantity" min="0" max="100" step="10" placeholder="-" required/>
                     </div>
                 </div>
-                <div className="otherInfo2">
-                    <div className="leadGenerate">
+                <div className="emailorPhoneSection">
+                    <div className="emailSection">
                         <p>
                             Which CRM do you use?
                         </p>
-                        <input type="number" id="quantity3" name="quantity" min="0" max="100" step="10" placeholder="-"/>
+                        <input type="number" id="quantity3" ref= {crm} name="quantity" min="0" max="100" step="10" placeholder="-" required/>
                     </div>
-                    <div className="totalLeads">
+                    <div className="emailSection">
                         <p>
                             No of agents
                         </p>
-                        <input type="number" id="quantity4" name="quantity" min="0" max="100" step="10" placeholder="-"/>
+                        <input type="number" id="quantity4" ref={noOfAgents} name="quantity" min="0" max="100" step="10" placeholder="-" required/>
                     </div>
                 </div>
-                <div className="leadSourceSection">
+                 <div className="shareSection">
                     <p>
                         What are your biggest lead sources?
                     </p>
-                    <input type="checkbox" name="Zollow" value="Zollow">Zollow</input>
-                    <input type="checkbox" name="Realtor" value="Realtor">Realtor</input>
-                    <input type="checkbox" name="Ylopo" value="Ylopo">Ylopo</input>
-                    <input type="checkbox" name="Others" value="Others">Others</input>
+                    <input type="checkbox" name="Zollow" value="Zollow" onChange={(e)=>handleSelect(e.target.value)}/><span>Zollow</span>
+                    <input type="checkbox" name="Realtor" value="Realtor" onChange={(e)=>handleSelect(e.target.value)}/><span>Realtor</span>
+                    <input type="checkbox" name="Ylopo" value="Ylopo" onChange={(e)=>handleSelect(e.target.value)}/><span>Ylopo</span>
+                    <input type="checkbox" name="Others" value="Others" onChange={(e)=>handleSelect(e.target.value)}/><span>Others</span>
                 </div>
+                
                 <div className="shareSection">
                     <p>
                         How did you hear about us
                     </p>
-                    <input type="checkbox" name="Google" value="Google">Google</input>
-                    <input type="checkbox" name="Facebook" value="Facebook">Facebook</input>
-                    <input type="checkbox" name="Email" value="Email">Email</input>
-                    <input type="checkbox" name="Friends" value="Friends">Friends</input>
-                    <input type="checkbox" name="Real Closers" value="Real Closers">Real Closers</input>
+                    <input type="checkbox" name="Google" value="Google" onChange={(e)=>handleShareClick(e)}/><span>Google</span>
+                    <input type="checkbox" name="Facebook" value="Facebook" onChange={(e)=>handleShareClick(e)}/><span>Facebook</span>
+                    <input type="checkbox" name="Email" value="Email" onChange={(e)=>handleShareClick(e)}/><span>Email</span>
+                    <input type="checkbox" name="Friends" value="Friends" onChange={(e)=>handleShareClick(e)}/><span>Friends</span>
+                    <input type="checkbox" name="Real Closers" value="Real Closers" onChange={(e)=>handleShareClick(e)}/><span>Real Closers</span>
                 </div>
+                <button type="submit" id="submitButton">Submit</button>
             </form>
         </div>
     );
