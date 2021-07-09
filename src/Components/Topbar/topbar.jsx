@@ -7,7 +7,10 @@ function Topbar({defaultValue}) {
     const [range, setRange] = useState(defaultValue);
 
     useEffect(() => {
-        setRange(JSON.parse(window.localStorage.getItem('range')));
+        if(JSON.parse(window.localStorage.getItem('range')))
+            setRange(JSON.parse(window.localStorage.getItem('range')));
+        else
+            setRange(3);
       }, []);
     
       useEffect(() => {
