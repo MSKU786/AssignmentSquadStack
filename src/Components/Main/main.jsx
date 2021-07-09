@@ -4,13 +4,20 @@ import Form from "./Form";
 import './main.css'
 
 function Main({index}) {
+
     const [form , setForm]  = useState('0');
+    //Handling form
     const handleForm = (e) => {
         setForm(e);
+        let element = document.getElementById('mainBody')
+        element.style.backgroundImage= "linear-gradient(to left bottom, #969494, #a7a6a6, #b9b8b9, #cbcbcb, #dedede)";;
     }
+    
 
     const handleCancel = (e) => {
         setForm(0);
+        let element = document.getElementById('mainBody')
+        element.style.backgroundImage=  "none";
     }
     return (
         <div className="mainContainer" >
@@ -47,7 +54,9 @@ function Main({index}) {
                         <div className="footerTwo" id =  {data.LeadsPerMonth==='40' ? "fill" : ""} onClick={()=> handleForm(data.LeadsPerMonth)}>
                             Start Your Trial
                         </div>
-                        {form===data.LeadsPerMonth && <Form value = {data.LeadsPerMonth} onClick = {handleCancel} />}
+                        <div  >
+                            {form===data.LeadsPerMonth && <Form value = {data.LeadsPerMonth} onClick = {handleCancel} />}
+                        </div>
                     </div>
                 )
             )
@@ -65,7 +74,10 @@ function Main({index}) {
                 <div className="footerTwo" onClick={()=> handleForm("80+")}>
                     Get in touch
                 </div>
-                {form==="80+" && <Form value = {"80+"} onClick = {handleCancel} />}
+                <div  >
+                    {form==="80+" && <Form value = {"80+"} onClick = {handleCancel} />}
+                </div>
+                
             </div>
         </div>
     );

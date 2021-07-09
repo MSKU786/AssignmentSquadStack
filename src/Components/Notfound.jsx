@@ -2,8 +2,8 @@ import React from 'react';
 
 function Notfound(props) {
     return (
-        <div>
-            Not found bhaya g          
+        <div className="notFound">
+            You are not connected to internet my friend
         </div>
     );
 }

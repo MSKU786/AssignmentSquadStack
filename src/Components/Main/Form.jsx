@@ -1,7 +1,8 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import "./form.css"
 function Form(props) {
+    //Used useRef for handling form data
     const name = useRef();
     const email = useRef();
     const mobile = useRef();
@@ -11,11 +12,31 @@ function Form(props) {
     const noOfAgents = useRef();
     const [sources, setSources] = useState([]);
     const [share, setShare] = useState([]);
+    const formRef = useRef();
+    
+     //Handling outside click
+     useEffect(() => {
+        let handler = (event)=> {
+            console.log(event.target);
+            if(formRef.current && !formRef.current.contains(event.target)){
+                handleCancel(0);
+            }
+  
+        
+        }
+        document.addEventListener("mousedown",handler);
 
+        return () => {
+            document.removeEventListener("mousedown", handler);
+        }
+    },[formRef])
+
+
+    //using function to handle the input data
     const handleSelect = (e) => {
         if(sources.includes(e))
         {
-            let data = sources.filter(val => val!=e);
+            let data = sources.filter(val => val!==e);
             setSources(data);
         }
         else
@@ -29,7 +50,7 @@ function Form(props) {
     const handleShareClick = (e) => {
         if(share.includes(e))
         {
-            let data = share.filter(val => val!=e);
+            let data = share.filter(val => val!==e);
             setShare(data);
         }
         else
@@ -39,11 +60,13 @@ function Form(props) {
             setShare(data);
         }
     }
+
+    //Closing the form 
     const handleCancel = (e) => {
         props.onClick(e);
-
     }
 
+    //Handling submission
     const handleClick = (e) => {
         e.preventDefault();
         const res = {
@@ -61,8 +84,10 @@ function Form(props) {
         alert(JSON.stringify(res));
         window.location.reload();
     }
+
+
     return (
-        <div className="formContainer">
+        <div ref={formRef} className="formContainer">
             <form onSubmit={handleClick}>
                 <div className="formHeader">
                     <h3> Get Stared with SquadVoice </h3>
