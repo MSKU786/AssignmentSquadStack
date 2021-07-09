@@ -154,11 +154,11 @@ function Form(props) {
                     <p>
                         How did you hear about us
                     </p>
-                    <input type="checkbox" name="Google" value="Google" onChange={(e)=>handleShareClick(e)}/><span>Google</span>
-                    <input type="checkbox" name="Facebook" value="Facebook" onChange={(e)=>handleShareClick(e)}/><span>Facebook</span>
-                    <input type="checkbox" name="Email" value="Email" onChange={(e)=>handleShareClick(e)}/><span>Email</span>
-                    <input type="checkbox" name="Friends" value="Friends" onChange={(e)=>handleShareClick(e)}/><span>Friends</span>
-                    <input type="checkbox" name="Real Closers" value="Real Closers" onChange={(e)=>handleShareClick(e)}/><span>Real Closers</span>
+                    <input type="checkbox" name="Google" value="Google" onChange={(e)=>handleShareClick(e.target.value)}/><span>Google</span>
+                    <input type="checkbox" name="Facebook" value="Facebook" onChange={(e)=>handleShareClick(e.target.value)}/><span>Facebook</span>
+                    <input type="checkbox" name="Email" value="Email" onChange={(e)=>handleShareClick(e.target.value)}/><span>Email</span>
+                    <input type="checkbox" name="Friends" value="Friends" onChange={(e)=>handleShareClick(e.target.value)}/><span>Friends</span>
+                    <input type="checkbox" name="Real Closers" value="Real Closers" onChange={(e)=>handleShareClick(e.target.value)}/><span>Real Closers</span>
                 </div>
                 <button type="submit" id="submitButton">Submit</button>
             </form>

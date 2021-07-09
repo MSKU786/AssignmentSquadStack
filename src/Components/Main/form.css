@@ -13,6 +13,8 @@
     padding: 5px 18px;
     font-family: 'Roboto', sans-serif;
     box-shadow: 0 0 100px;;
+    border: 2px solid rgb(82, 82, 112);
+    border-radius: 20px;
 }
 
 input[type=number]::-webkit-inner-spin-button, 
@@ -137,4 +139,12 @@ span{
     font-weight: bold;
     border-radius: 5%;
     cursor: pointer;
+}
+
+@media screen and (max-width: 700px) {
+    .formContainer{
+        width: 80%;
+        left: 5%;
+    }
+
 }

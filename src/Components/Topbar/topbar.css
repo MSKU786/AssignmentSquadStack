@@ -2,7 +2,6 @@
     display: flex;
     margin-top: 40px;
     width: 85vw;
-    height: 70px;
     justify-content: center;
     align-items: center;
     align-self: center;
@@ -15,7 +14,7 @@
 .block{
     display: flex;
     width: 20%;
-    height: 100%;
+    height: 70px;
     justify-content: center;
     align-items: center;
     border-left: 2px solid grey;
@@ -40,4 +39,18 @@
     background-color:#5a6f90 ;
     color: white;
 
+}
+
+@media screen and (max-width: 700px) {
+    .header{
+        width: 100%;
+        flex-wrap: wrap;
+        flex-direction: row;
+        margin-bottom: 70px;
+        border-radius: 0;
+    }
+    
+   .block{
+       width: 30%;
+   }
 }
